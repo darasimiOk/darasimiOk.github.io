@@ -1,3 +1,416 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Enhanced Responsive Styles - Beautiful on ALL screens */
+
+/* Remove the transition override that was affecting desktop */
+* {
+  transition-property: none;
+}
+
+/* Preserve desktop beauty - only apply mobile fixes where needed */
+@media (min-width: 1024px) {
+  /* Ensure desktop stays pristine */
+  nav .backdrop-blur-xl {
+    padding: 1rem 2rem !important;
+  }
+  
+  h1 {
+    font-size: clamp(3.5rem, 6vw, 6rem) !important;
+  }
+  
+  section {
+    padding-top: 8rem !important;
+    padding-bottom: 8rem !important;
+  }
+}
+
+/* Tablet adjustments (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Navigation */
+  nav .flex.justify-between {
+    gap: 1.5rem;
+  }
+
+  nav .text-2xl {
+    font-size: 1.5rem !important;
+  }
+
+  nav .flex.gap-8 {
+    gap: 1.5rem !important;
+    font-size: 0.875rem;
+  }
+
+  /* Hero */
+  h1 {
+    font-size: 3.5rem !important;
+  }
+
+  section:first-of-type p.text-xl {
+    font-size: 1.125rem !important;
+  }
+
+  /* Projects - 2 columns still work well */
+  #work .grid {
+    gap: 1.5rem !important;
+  }
+
+  /* Skills */
+  #skills .grid {
+    gap: 3rem !important;
+  }
+
+  /* Contact */
+  #contact .backdrop-blur-xl {
+    padding: 3rem !important;
+  }
+}
+
+/* Mobile devices (up to 767px) */
+@media (max-width: 767px) {
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Navigation - Stack on mobile */
+  nav .backdrop-blur-xl {
+    padding: 1rem !important;
+  }
+
+  nav .flex.justify-between {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  nav .text-2xl {
+    font-size: 1.25rem !important;
+    text-align: center;
+  }
+
+  nav .flex.gap-8 {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem !important;
+    font-size: 0.875rem;
+  }
+
+  nav .flex.gap-8 > a {
+    min-width: auto;
+  }
+
+  nav button {
+    width: 100%;
+    max-width: 200px;
+    margin-top: 0.5rem;
+  }
+
+  /* Hero section */
+  section:first-of-type {
+    padding-top: 10rem !important;
+    padding-bottom: 4rem !important;
+    min-height: auto !important;
+  }
+
+  h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  section:first-of-type p.text-xl {
+    font-size: 1rem !important;
+    margin-bottom: 2rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Hero CTA buttons */
+  section:first-of-type > div > div:last-child {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem !important;
+  }
+
+  section:first-of-type button:first-child {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 2rem !important;
+  }
+
+  section:first-of-type .flex.gap-4 {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Hide desktop code block */
+  .absolute.right-0 {
+    display: none !important;
+  }
+
+  /* Optimize background effects */
+  .fixed.inset-0 > div {
+    width: 16rem !important;
+    height: 16rem !important;
+  }
+
+  /* Section spacing */
+  section {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* Section headers */
+  h2.text-5xl {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .flex.items-center.gap-4.mb-16 {
+    margin-bottom: 2rem !important;
+  }
+
+  /* Projects section */
+  #work .grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  #work .backdrop-blur-xl {
+    padding: 1.5rem !important;
+  }
+
+  #work h3.text-2xl {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  #work p {
+    font-size: 0.875rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  #work .flex.flex-wrap {
+    gap: 0.5rem !important;
+  }
+
+  #work .flex.flex-wrap span {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Skills section */
+  #skills .grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+
+  #skills .backdrop-blur-xl {
+    padding: 2rem !important;
+  }
+
+  #skills h3.text-3xl {
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  #skills .text-lg {
+    font-size: 1rem !important;
+  }
+
+  #skills ul li {
+    font-size: 0.875rem !important;
+  }
+
+  #skills .space-y-8 > div {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Contact section */
+  #contact .backdrop-blur-xl {
+    padding: 2rem !important;
+  }
+
+  #contact h2.text-5xl {
+    font-size: 2rem !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.2 !important;
+  }
+
+  #contact p.text-xl {
+    font-size: 1rem !important;
+    margin-bottom: 2rem !important;
+    line-height: 1.6 !important;
+  }
+
+  #contact button {
+    width: 100%;
+    max-width: 100%;
+    font-size: 1rem !important;
+    padding: 1rem 2rem !important;
+    justify-content: center;
+  }
+
+  /* Footer */
+  footer .flex.justify-between {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  footer p {
+    font-size: 0.875rem;
+  }
+
+  footer .flex.gap-6 {
+    justify-content: center;
+  }
+}
+
+/* Small phones (up to 480px) */
+@media (max-width: 480px) {
+  /* Even tighter hero */
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  /* Container padding */
+  .max-w-7xl,
+  .max-w-6xl,
+  .max-w-4xl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  section {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Smaller headers */
+  h2.text-5xl {
+    font-size: 1.75rem !important;
+  }
+
+  /* Compact status badge */
+  .flex.items-center.gap-3.mb-6 {
+    gap: 0.5rem !important;
+  }
+
+  .flex.items-center.gap-3.mb-6 span {
+    font-size: 0.65rem !important;
+  }
+
+  .flex.items-center.gap-3.mb-6 svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* Icons sizing */
+  h2 + svg,
+  .flex.items-center.gap-4 svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Project cards */
+  #work .backdrop-blur-xl {
+    padding: 1.25rem !important;
+  }
+
+  #work h3.text-2xl {
+    font-size: 1.25rem !important;
+  }
+
+  /* Skills */
+  #skills .space-y-8 {
+    gap: 1.5rem !important;
+  }
+
+  #skills .backdrop-blur-xl {
+    padding: 1.5rem !important;
+  }
+
+  /* Contact */
+  #contact .backdrop-blur-xl {
+    padding: 1.5rem !important;
+  }
+
+  #contact button {
+    padding: 0.875rem 1.5rem !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Landscape phones */
+@media (max-width: 896px) and (orientation: landscape) {
+  section:first-of-type {
+    min-height: auto !important;
+    padding-top: 7rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  h1 {
+    font-size: 2.25rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  section:first-of-type p.text-xl {
+    margin-bottom: 1.5rem !important;
+  }
+
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  #work .grid,
+  #skills .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+}
+
+/* Large desktop optimization (1920px+) */
+@media (min-width: 1920px) {
+  .max-w-7xl {
+    max-width: 90rem !important;
+  }
+
+  h1 {
+    font-size: 7rem !important;
+  }
+
+  section {
+    padding-top: 10rem !important;
+    padding-bottom: 10rem !important;
+  }
+}
+
+/* Ensure smooth scaling between breakpoints */
+h1, h2, h3, p {
+  transition: font-size 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+}
+
+/* Prevent text overflow */
+button, a, span {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Fix container constraints */
+.max-w-7xl,
+.max-w-6xl,
+.max-w-4xl {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure images/content never overflow */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
